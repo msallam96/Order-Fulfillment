@@ -16,7 +16,7 @@ import javax.inject.Singleton
 class ApplicationModule {
 
     @Provides
-    fun provideBaseUrl() = "https://5e510330f2c0d300147c034c.mockapi.io/"
+    fun provideBaseUrl() = "https://uat.unioncoop.ae/orderprocess/"
 
     @Provides
     @Singleton

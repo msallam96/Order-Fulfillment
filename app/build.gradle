@@ -33,6 +33,23 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    flavorDimensions "pickerapp"
+    productFlavors {
+        dev {
+            applicationId "com.ucs.picker"
+            buildConfigField "String", "BASE_URL", '"https://uat.unioncoop.ae/orderprocess/"'
+            buildConfigField "String", "USERNAME", '"ucs_orderprocess"'
+            buildConfigField "String", "PASSWORD", '"ucs_orderprocess@123456"'
+        }
+
+        prod {
+            applicationId "com.ucs.picker"
+            buildConfigField "String", "BASE_URL", '"https://www.unioncoop.ae/orderprocess/"'
+            buildConfigField "String", "USERNAME", '"unioncooppickerandroidapp@uncioncoop.ae"'
+            buildConfigField "String", "PASSWORD", '"jLwT1DoE6/zCRNksIql4suJdvFZODK6MvLmOZp8QIuA=@123"'
+        }
+    }
 }
 
 dependencies {
