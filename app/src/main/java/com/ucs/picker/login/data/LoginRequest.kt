@@ -2,11 +2,10 @@ package com.ucs.picker.login.data
 
 import com.squareup.moshi.Json
 
-class LoginRequest {
-    @Json(name = "username")
-    var userName: String? = null
-
-    @Json(name = "password")
-    var password: String? = null
-
-}
+/**
+ * Created by Raed Saeed on 29/11/2020
+ **/
+class LoginRequest(
+    @Json(name = "username") val userName: String,
+    @Json(name = "password") val password: String
+)

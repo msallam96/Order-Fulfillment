@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Dagger-Hilt</string>
     <string name="processing">Processing</string>
+    <string name="user_name">User Name</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="required">Required</string>
 </resources>

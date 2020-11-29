@@ -1,1 +1,5 @@
 /build
+/release
+/release/*.aab
+*.aab
+*.apk
