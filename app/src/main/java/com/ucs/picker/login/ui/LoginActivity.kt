@@ -27,19 +27,19 @@ class LoginActivity : BaseActivity() {
             if (binding.etActivityLoginUser.checkText() && binding.etActivityLoginPass.checkText()) {
                 loginViewModel.login(
                     LoginRequest(
-                        binding.etActivityLoginUser.toString(),
-                        binding.etActivityLoginPass.toString()
+                        binding.etActivityLoginUser.text.toString(),
+                        binding.etActivityLoginPass.text.toString()
                     )
                 )
             }
         }
 
         loginViewModel.loginResponse.observe(this, Observer {
-            populateUI(it)
+            populateLoginResponse(it)
         })
     }
 
-    private fun populateUI(response: Response<LoginResponse>?) {
+    private fun populateLoginResponse(response: Response<LoginResponse>?) {
         when (response?.status) {
             Response.Status.ERROR -> {
                 response.error?.printStackTrace()
@@ -51,8 +51,17 @@ class LoginActivity : BaseActivity() {
             }
 
             Response.Status.SUCCESS -> {
-                hideProgressBar()
+                hideProgressDialog()
+                populateLoginResponse(response.data?.response_data)
             }
+        }
+    }
+
+    private fun populateLoginResponse(response: LoginResponse.ResponseDataBean?) {
+        if (response?.errorCode.toString() == "0") {
+
+        } else {
+
         }
     }
 }

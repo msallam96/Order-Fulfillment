@@ -19,7 +19,7 @@ class LoginViewModel @ViewModelInject constructor(private val loginRepository: L
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 loginResponse.postValue(Response.stateLoading())
-                loginResponse.value = Response.stateSuccess(loginRepository.login(loginRequest))
+                loginResponse.postValue(Response.stateSuccess(loginRepository.login(loginRequest)))
             } catch (e: Exception) {
                 loginResponse.postValue(Response.stateError(e))
             }
