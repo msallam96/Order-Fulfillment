@@ -1,6 +1,7 @@
 package com.ucs.picker.base
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import com.ucs.picker.BuildConfig
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,7 +17,7 @@ import javax.inject.Singleton
 class ApplicationModule {
 
     @Provides
-    fun provideBaseUrl() = "https://uat.unioncoop.ae/orderprocess/"
+    fun provideBaseUrl() = BuildConfig.BASE_URL
 
     @Provides
     @Singleton
