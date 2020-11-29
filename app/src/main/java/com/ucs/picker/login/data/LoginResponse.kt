@@ -1,4 +1,4 @@
-package com.ucs.picker.data
+package com.ucs.picker.login.data
 
 import android.util.Printer
 import com.squareup.moshi.Json

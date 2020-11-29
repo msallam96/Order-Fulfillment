@@ -1,4 +1,4 @@
-package com.ucs.picker.data
+package com.ucs.picker.base
 
 /**
  * Created by Raed Saeed on 01/10/2020.

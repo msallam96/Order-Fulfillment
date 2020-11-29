@@ -1,14 +1,12 @@
-package com.ucs.picker.ui
+package com.ucs.picker.login.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.ucs.picker.R
+import com.ucs.picker.login.data.LoginRequest
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.activity_main.*
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -17,11 +15,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        mainViewModel.getUsers()
+        mainViewModel.getUsers(LoginRequest())
         mainViewModel.usersList.observe(this, Observer {
-            rvUsers.adapter = UsersAdapter(this  , it)
-            rvUsers.layoutManager=LinearLayoutManager(this)
-            Toast.makeText(this ,it.toString() , Toast.LENGTH_LONG).show()
+
 
         })
     }

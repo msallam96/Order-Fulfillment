@@ -2,7 +2,6 @@ package com.ucs.picker.base
 
 import android.view.View
 import androidx.databinding.ViewDataBinding
-import com.ucs.picker.data.BaseObject
 
 
 /**
