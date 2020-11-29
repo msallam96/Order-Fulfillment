@@ -1,8 +1,10 @@
 package com.ucs.picker.base
 
+import android.content.DialogInterface
 import android.view.MenuItem
 import androidx.annotation.IdRes
 import androidx.annotation.StringRes
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.FragmentManager
@@ -132,4 +134,53 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
         return super.onOptionsItemSelected(item)
     }
 
+    private fun buildAlertDialog(
+        @StringRes positive: Int,
+        @StringRes title: Int,
+        @StringRes message: Int,
+        action: DialogInterface.OnClickListener
+    ): AlertDialog.Builder {
+        val builder: AlertDialog.Builder = AlertDialog.Builder(this)
+        builder.setTitle(title)
+            .setMessage(message)
+            .setCancelable(false)
+            .setPositiveButton(positive, action)
+        return builder
+    }
+
+    /**
+     * Build and Alert Dialog to notify user for something happened and needs it's interface
+     *
+     * @param title   alert dialog title
+     * @param message alert dialog message
+     * @param action  alert dialog action ok
+     * @return AlertDialog Builder
+     */
+    protected open fun buildAlertDialog(
+        title: String?,
+        message: String?,
+        action: DialogInterface.OnClickListener?
+    ): AlertDialog.Builder {
+        val builder: AlertDialog.Builder = AlertDialog.Builder(this)
+        builder.setTitle(title)
+            .setMessage(message)
+            .setCancelable(false)
+            .setPositiveButton(R.string.ok, action)
+        return builder
+    }
+
+    protected open fun buildAlertDialog(
+        message: String?,
+        positive: String?,
+        negative: String?,
+        actionPositive: DialogInterface.OnClickListener?,
+        actionNegative: DialogInterface.OnClickListener?
+    ): AlertDialog.Builder? {
+        val builder: AlertDialog.Builder = AlertDialog.Builder(this)
+        builder.setMessage(message)
+            .setCancelable(false)
+            .setPositiveButton(positive, actionPositive)
+            .setNegativeButton(negative, actionNegative)
+        return builder
+    }
 }

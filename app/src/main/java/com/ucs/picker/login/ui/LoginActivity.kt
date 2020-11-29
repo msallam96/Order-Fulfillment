@@ -1,5 +1,6 @@
 package com.ucs.picker.login.ui
 
+import android.content.DialogInterface
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
@@ -59,9 +60,11 @@ class LoginActivity : BaseActivity() {
 
     private fun populateLoginResponse(response: LoginResponse.ResponseDataBean?) {
         if (response?.errorCode.toString() == "0") {
-
+            buildAlertDialog(response?.errorMessage, "",
+                DialogInterface.OnClickListener { dialog, which -> dialog?.dismiss() })
+                .show()
         } else {
-
+            // todo work on save user data
         }
     }
 }
