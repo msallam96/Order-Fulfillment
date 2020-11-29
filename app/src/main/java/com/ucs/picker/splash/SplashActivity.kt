@@ -14,7 +14,7 @@ class SplashActivity : AppCompatActivity() {
 
         Handler().postDelayed({
             goToNextScreen()
-        }, 200)
+        }, 2000)
     }
 
     private fun goToNextScreen() {
