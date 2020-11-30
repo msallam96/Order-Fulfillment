@@ -1,11 +1,16 @@
 package com.ucs.picker.login.data
 
-import com.squareup.moshi.Json
+import com.google.gson.annotations.Expose
+import com.google.gson.annotations.SerializedName
 
 /**
  * Created by Raed Saeed on 29/11/2020
  **/
 class LoginRequest(
-    @Json(name = "username") val userName: String,
-    @Json(name = "password") val password: String
+    @SerializedName("username")
+    @Expose
+    val userName: String,
+    @SerializedName("password")
+    @Expose
+    val password: String
 )

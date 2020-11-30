@@ -9,7 +9,9 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -30,11 +32,28 @@ class ApplicationModule {
                 Log.v("logger", "log $message")
             }
         })
+
+        val interceptor = object : Interceptor {
+            override fun intercept(chain: Interceptor.Chain): Response {
+                val original = chain.request()
+                val request = original.newBuilder()
+                    .header("Content-Type", "application/json")
+                    .header("DeviceType", "ANDROID")
+                    .header("username", BuildConfig.USERNAME)
+                    .header("password", BuildConfig.PASSWORD)
+                    .build()
+
+                return chain.proceed(request)
+            }
+        }
+
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
         OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
+            .addInterceptor(interceptor)
             .build()
     }
+
 
     @Provides
     fun getGson(): Gson {
