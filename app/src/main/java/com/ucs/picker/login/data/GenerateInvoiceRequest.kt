@@ -1,16 +1,16 @@
 package com.ucs.picker.login.data
 
-import com.squareup.moshi.Json
+import com.google.gson.annotations.SerializedName
 import java.util.*
 
 class GenerateInvoiceRequest {
-    @Json(name = "order_info")
+    @SerializedName("order_info")
     private var orderInfoBean: OrderInfo? = null
 
-    @Json(name = "item_info")
+    @SerializedName("item_info")
     private var items = ArrayList<ItemRequest>()
 
-    @Json(name = "new_items")
+    @SerializedName("new_items")
     private var newItems = ArrayList<ItemRequest>()
 
 

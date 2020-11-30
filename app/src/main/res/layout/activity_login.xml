@@ -37,11 +37,13 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dp_8"
             android:hint="@string/user_name"
+            app:boxBackgroundColor="@android:color/transparent"
             app:layout_constraintBottom_toTopOf="@id/tl_activity_login_pass_layout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/iv_activity_login_logo"
-            app:startIconDrawable="@drawable/ic_person_24">
+            app:startIconDrawable="@drawable/ic_person_24"
+            app:startIconTint="@color/colorPrimary">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_activity_login_user"
@@ -56,16 +58,21 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dp_8"
             android:hint="@string/password"
+            app:boxBackgroundColor="@android:color/transparent"
             app:layout_constraintBottom_toTopOf="@id/btn_activity_login"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tl_activity_login_user_layout"
-            app:startIconDrawable="@drawable/ic_lock_24">
+            app:passwordToggleEnabled="true"
+            app:startIconDrawable="@drawable/ic_lock_24"
+            app:startIconTint="@color/colorPrimary">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_activity_login_pass"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+
         </com.google.android.material.textfield.TextInputLayout>
 
 

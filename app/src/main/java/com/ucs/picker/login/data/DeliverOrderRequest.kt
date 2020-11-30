@@ -1,21 +1,21 @@
 package com.ucs.picker.login.data
 
-import com.squareup.moshi.Json
+import com.google.gson.annotations.SerializedName
 
 class DeliverOrderRequest {
-    @Json(name = "id")
+    @SerializedName("id")
     private var id: String? = null
 
-    @Json(name = "mage_order_id")
+    @SerializedName("mage_order_id")
     private var mage_order_id: String? = null
 
-    @Json(name = "user_id")
+    @SerializedName("user_id")
     private var user_id: String? = null
 
-    @Json(name = "sku")
+    @SerializedName("sku")
     private var sku: String? = null
 
-    @Json(name = "status")
+    @SerializedName("status")
     private var status: String? = null
 
     fun getId(): String? {

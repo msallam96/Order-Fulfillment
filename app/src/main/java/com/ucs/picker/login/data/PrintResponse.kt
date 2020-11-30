@@ -1,9 +1,9 @@
 package com.ucs.picker.login.data
 
-import com.squareup.moshi.Json
+import com.google.gson.annotations.SerializedName
 
 class PrintResponse {
-    @Json(name = "response_data")
+    @SerializedName("response_data")
     private var responseData: GenerateInvoiceResponse.ResponseDataBean? = null
 
     fun getResponseData(): GenerateInvoiceResponse.ResponseDataBean? {

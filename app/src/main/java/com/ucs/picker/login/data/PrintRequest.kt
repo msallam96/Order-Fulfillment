@@ -1,12 +1,12 @@
 package com.ucs.picker.login.data
 
-import com.squareup.moshi.Json
+import com.google.gson.annotations.SerializedName
 
 class PrintRequest {
-    @Json(name = "printer_type")
+    @SerializedName("printer_type")
     private var printerType: String? = null
 
-    @Json(name = "invoice_id")
+    @SerializedName("invoice_id")
     private var invoiceId: String? = null
 
     fun PrintRequest(printerType: String?, invoiceId: String?) {

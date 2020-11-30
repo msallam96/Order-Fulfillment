@@ -175,7 +175,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
         negative: String?,
         actionPositive: DialogInterface.OnClickListener?,
         actionNegative: DialogInterface.OnClickListener?
-    ): AlertDialog.Builder? {
+    ): AlertDialog.Builder {
         val builder: AlertDialog.Builder = AlertDialog.Builder(this)
         builder.setMessage(message)
             .setCancelable(false)

@@ -1,9 +1,9 @@
 package com.ucs.picker.login.data
 
-import com.squareup.moshi.Json
+import com.google.gson.annotations.SerializedName
 
 class GenerateInvoiceResponse {
-    @Json(name = "response_data")
+    @SerializedName("response_data")
     private var responseData: GenerateInvoiceResponse? = null
 
     fun getResponseData(): GenerateInvoiceResponse? {
@@ -19,7 +19,7 @@ class GenerateInvoiceResponse {
         private var error_code: String? = null
         private var error_message: String? = null
 
-        @Json(name = "invoice_id")
+        @SerializedName("invoice_id")
         private var invoiceId: String? = null
 
         fun getError_code(): String? {
